@@ -27,11 +27,11 @@ class GoodForm(forms.ModelForm):
 		fields = ['owner','message']
 
 # 検索フォーム
-class SerchForm(forms.ModelForm):
+class SearchForm(forms.Form):
 	search = forms.CharField(max_length=100)
 
 # Groupのチェックボックスフォーム
-class GroupCheckForm(forms.ModelForm):
+class GroupCheckForm(forms.Form):
 	def __init__(self, user, *args, **kwargs):
 		super(GroupCheckForm, self).__init__(*args,**kwargs)
 		public = User.objects.filter(username='public').first()
@@ -41,7 +41,7 @@ class GroupCheckForm(forms.ModelForm):
 		)
 
 # Groupの選択メニューフォーム
-class GroupSelectForm(forms.ModelForm):
+class GroupSelectForm(forms.Form):
 	def __init__(self, user, *args, **kwargs):
 		super(GroupSelectForm, self).__init__(*args,**kwargs)
 		self.fields['groups'] = forms.ChoiceField(
@@ -49,7 +49,7 @@ class GroupSelectForm(forms.ModelForm):
 		)
 
 # Friendのチェックボックスフォーム
-class FriendsForm(forms.ModelForm):
+class FriendsForm(forms.Form):
 	def __init__(self, user, friends=[], vals=[], *args, **kwargs):
 		super(FriendsForm, self).__init__(*args,**kwargs)
 		self.fields['friends'] = forms.MultipleChoiceField(

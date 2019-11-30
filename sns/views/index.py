@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
-from django.contrib import message
+from django.contrib import messages
 
+from ..models import Group, Friend, Message
 from ..forms import SearchForm, GroupCheckForm
 
 from django.db.models import Q
@@ -43,7 +44,7 @@ def index1(request):
 	# GETアクセス時の処理
 	else:
 		#フォームの用意
-		searchForm = SearchForm()
+		searchform = SearchForm()
 		checkform = GroupCheckForm(request.user)
 		# Groupのリストを取得
 		gps = Group.objects.filter(owner=request.user)

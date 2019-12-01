@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 # goodボタンの処理
 @login_required(login_url='/admin/login/')
-def good1(request):
+def good1(request,good_id):
 	# goodするMessageの取得
 	good_msg = Message.objects.get(id=good_id)
 	# 自分がメッセージにGoodした数を調べる

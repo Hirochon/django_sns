@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 from ..models import Friend, Group
-from ..form import GroupSelectForm, FriendsForm, CreateGroupForm
+from ..forms import GroupSelectForm, FriendsForm, CreateGroupForm
 
 from django.contrib.auth.decorators import login_required
 

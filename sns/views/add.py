@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 from ..models import Friend
+from .public import get_public
 
 from django.contrib.auth.decorators import login_required
 
@@ -34,9 +35,3 @@ def add1(request):
 	# メッセージを設定
 	messages.success(request, add_user.username + 'を追加しました！groupページに移動して、追加したFriendをメンバーに設定してください。')
 	return redirect(to='/sns')
-
-# publicなUserとGroupを取得する。
-def get_public():
-	public_user = User.objects.filter(username='public').first()
-	public_group = Group.objects.filter(owner=public_user).first()
-	return (public_user, public_group)

@@ -15,7 +15,7 @@ def creategroup1(request):
 		gp.owner = request.user
 		gp.title = request.POST['group_name']
 		gp.save()
-		message.info(request, '新しいグループを作成しました。')
+		messages.info(request, '新しいグループを作成しました。')
 		return redirect(to='/sns/groups')
 		
 	# POSTありきのプログラムを回避

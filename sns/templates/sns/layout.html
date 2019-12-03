@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="body_content">
-		<div class="body_content_inner">
+		<header class="body_content_inner">
 			<table class="login_table" width="100%">
 				<tr>
 					<th width="150px">menu</th>
@@ -29,16 +29,16 @@
 					<td>"{{login_user}}"</td>
 				</tr>
 			</table>
-			<div class="header">{% block header %}{% endblock %}</div>
-			<div class="content">{% block content %}{% endblock %}</div>
-			<div class="footer">
+			<header>{% block header %}{% endblock %}</header>
+			<main>{% block content %}{% endblock %}</main>
+			<footer>
 				<hr />
 				<div>
 					<span id="lay-1"><a href="/admin/logout?next=/sns/">[ logout ]</a></span>
 					<span id="lay-2">copyright 2019 Hirochon.</span>
 				</div>
-			</div>
-		</div>
+			</footer>
+		</header>
 	</div>
 </body>
 </html>

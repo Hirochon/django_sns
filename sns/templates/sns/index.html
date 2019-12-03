@@ -42,7 +42,7 @@
 			<p class="share_item_content">{{item.get_share}}</p>
 		{% endif %}
 		<p class="message_owner">
-			<span class="message_counter">share={{item.share_count}} good={{ite,.good_count}}</span>
+			<span class="message_counter">share={{item.share_count}} good={{item.good_count}}</span>
 			"{{item.owner}}"(<a href="{% url 'add' %}?name={{item.owner}}">add friend</a>)
 			<a href="{% url 'share' item.id %}"><button>share</button></a>
 			<a href="{% url 'good' item.id %}"><button>good!</button></a>

@@ -28,7 +28,7 @@ def post1(request):
 		msg.content = content
 		msg.save()
 		# メッセージを設定
-		message.success(request, '新しいメッセージを投稿しました！')
+		messages.success(request, '新しいメッセージを投稿しました！')
 		return redirect(to='/sns')
 	
 	# GETアクセス時の処理

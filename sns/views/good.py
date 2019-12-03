@@ -17,7 +17,7 @@ def good1(request,good_id):
 	# ゼロより大きければ既にgood済み
 	if is_good > 0:
 		messages.success(request, '既にメッセージにはGoodしています。')
-		return redrect(to='/sns')
+		return redirect(to='/sns')
 	
 	# Messageのgood_countを1増やす
 	good_msg.good_count += 1

@@ -17,7 +17,7 @@ def index1(request):
 	# POST送信時の処理
 	if request.method == 'POST':
 		# Groupのチェックを更新したときの処理
-		if request.method['mode'] == '__check_form__':
+		if request.POST['mode'] == "__check_form__":
 			# フォームの用意
 			searchform = SearchForm()
 			checkform = GroupCheckForm(request.user, request.POST)
@@ -26,10 +26,10 @@ def index1(request):
 			for item in request.POST.getlist('groups'):
 				glist.append(item)
 			# Messageの取得
-			message = get_your_group_message(request.user, glist, None)
+			messages = get_your_group_message(request.user, glist, None)
 
 		# Groupメニューを変更したときの処理
-		if request.method['mode'] == '__search_form__':
+		if request.POST['mode'] == '__search_form__':
 			# フォームの用意
 			searchform = SearchForm(request.POST)
 			checkform = GroupCheckForm(request.user)

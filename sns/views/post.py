@@ -16,7 +16,7 @@ def post1(request):
 	if request.method == 'POST':
 		# 送信内容の取得
 		gr_name = request.POST['groups']
-		content = request.POST['groups']
+		content = request.POST['content']
 		# Groupの取得
 		group = Group.objects.filter(owner=request.user).filter(title=gr_name).first()
 		if group == None:
@@ -33,7 +33,6 @@ def post1(request):
 	
 	# GETアクセス時の処理
 	else:
-
 		form = PostForm(request.user)
 
 	# 共通処理

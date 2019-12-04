@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="{% static 'sns/css/style.css' %}" />
+	<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+	<div class="body_content">
+		<header class="body_content_inner">
+			<table class="login_table" width="100%">
+				<tr>
+					<th width="150px">menu</th>
+					<td>
+						<table class="login_table_inner">
+							<tr>
+								<td><a href="{% url 'index' %}">top</a></td>
+								<td><a href="{% url 'post' %}">post</a></td>
+								<td><a href="{% url 'groups' %}">group</a></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<th width="150px">login user:</th>
+					<td>"{{login_user}}"</td>
+				</tr>
+			</table>
+			<header>{% block header %}{% endblock %}</header>
+			<main>{% block content %}{% endblock %}</main>
+			<footer>
+				<hr />
+				<div>
+					<span id="lay-1"><a href="/admin/logout?next=/sns/">[ logout ]</a></span>
+					<span id="lay-2">copyright 2019 Hirochon.</span>
+				</div>
+			</footer>
+		</header>
+	</div>
+</body>
+</html>

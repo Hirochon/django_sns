@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
 
-from ..models import Message
+from ..models import Message,Group
 from ..forms import PostForm
 
 from django.contrib.auth.decorators import login_required
@@ -29,7 +29,7 @@ def share1(request, share_id):
 		msg.group = group
 		msg.content = content
 		msg.share_id = share_id
-		mas.save()
+		msg.save()
 		share_msg = msg.get_share()
 		share_msg.share_count += 1
 		share_msg.save()

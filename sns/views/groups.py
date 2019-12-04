@@ -33,13 +33,15 @@ def groups1(request):
 		
 		# Friendsのチェック更新時の処理
 		if request.POST['mode'] == '__friends_form__':
-			# 選択したGrouoの取得
+			# 選択したGroupの取得
 			sel_group = request.POST['group']
-			group_pbj = Group.objects.filter(title=sel_group).first()
+			group_obj = Group.objects.filter(title=sel_group).first()
 			# チェックしたFriendsを取得
 			sel_fds = request.POST.getlist('friends')
 			# FriendsのUserを取得
-			sel_users = User.objects.filter(owner=request.user).filter(user__in=sel_users)
+			sel_users = User.objects.filter(username__in=sel_fds)
+			# Userのリストに含まれるユーザーが登録したFriendを取得
+			fds = Friend.objects.filter(owner=request.user).filter(user__in=sel_users)
 			# 全てのFriendにGroupを設定し、保存する
 			vlist = []
 			for item in fds:

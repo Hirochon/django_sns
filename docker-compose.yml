@@ -1,5 +1,7 @@
 version: '3'  # Docker Composeのバージョン
 services:
+  db:
+    image: postgres
   django_sns:  # コンテナに名前をつける
     build: .  # Dockerfileがあるディレクトリへのパス
     volumes:
@@ -7,3 +9,5 @@ services:
     ports:
       - "8000:8000"
     command: python manage.py runserver 0.0.0.0:8000
+    depends_on: 
+      - db
